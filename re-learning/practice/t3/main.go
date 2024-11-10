@@ -8,7 +8,12 @@ import (
 func main(){
     printhello("Jagjeevan");
     fmt.Println(add(5,6));
-    fmt.Print(divide(10,3));
+    qutiont,remainder,err:=divide(10,0);
+    if (err!=nil){
+        fmt.Println(err.Error());
+    }else{
+        fmt.Print("Quotient: ",qutiont," Remainder: ",remainder);
+    }
 }
 
 func printhello(str string){
