@@ -2,24 +2,24 @@ package struc
 
 import "testing"
 
-func TestStruct (t *testing.T){
-	t.Run("Circle", func (t *testing.T){
-		circle := Circle{ 100 };
-		got := circle.Area()
-		want := 314.0
+func TestArea(t *testing.T) {
 
+	checkArea := func(t testing.TB, shape Shape, want float64) {
+		t.Helper()
+		got := shape.Area()
 		if got != want {
-			t.Errorf("Got %f instead of %f", got, want);
+			t.Errorf("got %g want %g", got, want)
 		}
+	}
+
+	t.Run("rectangles", func(t *testing.T) {
+		rectangle := Rectangle{12, 6}
+		checkArea(t, rectangle, 72.0)
 	})
 
-	t.Run("Rectangle", func(t *testing.T){
-		r := Rectangle {10, 10};
-		got := r.Area();
-		want := 100;
-
-		if got != want {
-			t.Errorf("Got %d instead of %d", got, want);
-		}
+	t.Run("circles", func(t *testing.T) {
+		circle := Circle{100}
+		checkArea(t, circle, 314.0)
 	})
+
 }
