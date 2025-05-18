@@ -7,7 +7,7 @@ func concurrentFib(n int) []int {
 
 	var sl []int
 
-	for i:= range s{
+	for i:= range s {
 		sl = append(sl, i)
 	}
 
